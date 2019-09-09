@@ -7,6 +7,7 @@ import ListTodosComponent from './ListTodosComponent'
 import HeaderComponent from './HeaderComponent'
 import FooterComponent from './FooterComponent'
 import ErrorComponent from './ErrorComponent'
+import UpdateComponent from './upateComponent'
 
 class TodoApp extends Component {
     render() {
@@ -21,6 +22,7 @@ class TodoApp extends Component {
                             <Route path="/welcome/:name" component={WelcomeComponent} />
                             <Route path="/todos" component={ListTodosComponent} />
                             <Route path="/logout" component={LogoutComponent} />
+                            <Route path="/update/:id" component={UpdateComponent} />
                             <Route component={ErrorComponent} />
                         </Switch>
                         <FooterComponent />

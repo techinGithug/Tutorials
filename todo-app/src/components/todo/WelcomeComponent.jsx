@@ -38,12 +38,19 @@ class WelcomeComponent extends Component {
     }
 
     getWelcomeMessage = () => {
-        HelloWorldService.executeHelloWorldService()
+         // HelloWorldService.executeHelloWorldService()
+        // .then( res => this.successRespond(res) ) 
+
+        // HelloWorldService.executeHelloWorldBeanService()
+        // .then( res => this.successRespond(res) ) 
+
+         HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
         .then( res => this.successRespond(res) ) 
     }
 
     successRespond = (res) => {
-        this.setState({welcomeMessage: res.data})
+        // console.log(res)
+        this.setState({welcomeMessage: res.data.message})
     }
 
 }  

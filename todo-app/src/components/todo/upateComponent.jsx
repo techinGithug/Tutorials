@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import TodoDataService from '../../api/todo/TodoService.js';
 
 class UpdateComponent extends Component {
     constructor(props) {
         super(props)
         this.state = { 
             id: this.props.match.params.id,
-            description: 'Learn form',
+            description: '',
             targetDate: moment(new Date()).format('YYYY-MM-DD')
         }
 
@@ -18,6 +19,27 @@ class UpdateComponent extends Component {
 
     onSubmit = (values) => {
         // console.log("onSubmit : "+values)
+        let todo = {
+            id: this.state.id,
+            description: values.description,
+            targetDate: values.targetDate
+        }
+
+        if(this.state.id === -1) {
+            TodoDataService.postTodo(todo)
+            .then( () => this.props.history.push('/todos') )
+        } else {
+            TodoDataService.updateTodo(this.state.id, todo)
+            .then( () => this.props.history.push('/todos') )
+        }
+    }
+
+    componentDidMount = () => {
+        TodoDataService.editTodo(this.state.id)
+        .then( res => this.setState({
+            description: res.data.description,
+            targetDate: moment(res.data.targetDate).format("YYYY-MM-DD")
+        }) )
     }
 
     validate = (values) => {
@@ -40,13 +62,14 @@ class UpdateComponent extends Component {
        
         return (
             <div className="container">
-                <h3>Update</h3>
+                <h3>Todo</h3>
                 <Formik
                     initialValues = {{ description, targetDate }}
                     onSubmit = {this.onSubmit}
                     validateOnChange = {false}
                     validateOnBlur = {false}
                     validate = {this.validate}
+                    enableReinitialize = {true}
                 >
                     {
                         (props) => (
@@ -59,7 +82,7 @@ class UpdateComponent extends Component {
                                     <label>Target date</label>
                                     <Field className="form-control" type="date" name="targetDate" />
                                 </fieldset>
-                                <button type="submit" className="btn btn-primary">Save</button>
+                                <button type="submit" className="btn btn-primary btn-sm">Save</button>
                             </Form>
                         )
                     }

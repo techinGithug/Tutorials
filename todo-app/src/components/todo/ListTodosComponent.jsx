@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoDataService from '../../api/todo/TodoService.js'
+import moment from 'moment';
 
 class ListTodosComponent extends Component {
     constructor(props) {
@@ -14,9 +15,10 @@ class ListTodosComponent extends Component {
             message: null
         }
 
-        this.deleteTodo = this.deleteTodo.bind(this)
-        this.refreshTodo = this.refreshTodo.bind(this)
-        this.updateTodo = this.updateTodo.bind(this)
+        this.deleteTodo     = this.deleteTodo.bind(this)
+        this.refreshTodo    = this.refreshTodo.bind(this)
+        this.updateTodo     = this.updateTodo.bind(this)
+        this.addTodo        = this.addTodo.bind(this)
 
     }
 
@@ -39,6 +41,10 @@ class ListTodosComponent extends Component {
             this.setState({message: `Delete of todo ${id} successful`})
             this.refreshTodo()
         })
+    }
+
+    addTodo = () => {
+        this.props.history.push('/update/-1')
     }
 
     updateTodo = (id) => {
@@ -70,15 +76,18 @@ class ListTodosComponent extends Component {
                                     <tr key={todo.id}>
                                         {/* <td>{todo.id}</td> */}
                                         <td>{todo.description}</td>
-                                        <td>{todo.targetDate.toString()}</td>
+                                        <td>{moment(todo.targetDate).format("YYYY-MM-DD")}</td>
                                         <td>{todo.done.toString()}</td>
-                                        <td><button className="btn btn-warning" onClick={() => this.updateTodo(todo.id)}>Update</button></td>
-                                        <td><button className="btn btn-danger" onClick={() => this.deleteTodo(todo.id)}>Delete</button></td>
+                                        <td><button className="btn btn-warning btn-sm" onClick={() => this.updateTodo(todo.id)}>Update</button></td>
+                                        <td><button className="btn btn-danger btn-sm" onClick={() => this.deleteTodo(todo.id)}>Delete</button></td>
                                     </tr>
                                 )
                             }
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button type="button" className="btn btn-primary btn-sm" onClick={() => this.addTodo()}>Add</button>
+                    </div>
                 </div>
             </div>
         );

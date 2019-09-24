@@ -62,11 +62,11 @@ class ListTodosComponent extends Component {
                         <thead>
                             <tr>
                                 {/* <th>id</th> */}
-                                <th>description</th>
-                                <th>date</th>
-                                <th>isDone?</th>
-                                <th>update</th>
-                                <th>delete</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>IsDone?</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

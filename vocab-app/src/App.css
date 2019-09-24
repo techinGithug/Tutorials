@@ -1,0 +1,93 @@
+body{
+  background-color: #FFFFFF !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.navStyle {
+  border-radius: 0px !important;
+}
+
+.loginComponent {
+  background-color: #F4F6F6; 
+  margin-top: 10em;
+  border: 1px solid #EBEDEF ;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+
+/* MARGIN */
+.mgTop10Px {
+  margin-top: 10px;
+}
+
+.mgTop5Em {
+  margin-top: 5em;
+}
+
+.mgTop10Em {
+  margin-top: 10em;
+}
+
+.mgBottom1 {
+  margin-bottom: 10px;
+}
+
+.mgBottom2 {
+  margin-bottom: 20px;
+}
+
+/* TEXT ALIGN */
+.center {
+  text-align: center;
+}
+
+/* WIDTH */
+.width25Pc {
+  width: 25% !important;
+}
+
+.width100Pc {
+  width: 100% !important;
+}
+
+.Footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

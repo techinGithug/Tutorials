@@ -45,6 +45,10 @@ body{
   margin-top: 10px;
 }
 
+.mgTop20Px {
+  margin-top: 20px;
+}
+
 .mgTop5Em {
   margin-top: 5em;
 }
@@ -53,12 +57,36 @@ body{
   margin-top: 10em;
 }
 
-.mgBottom1 {
+.mgTop20Em {
+  margin-top: 20em;
+}
+
+.mgRight5Px {
+  margin-right: 5px;
+}
+
+.mgRight10Px {
+  margin-right: 10px !important;
+}
+
+.mgBottom10Px {
   margin-bottom: 10px;
 }
 
-.mgBottom2 {
-  margin-bottom: 20px;
+.mgBottom20Px {
+  margin-bottom: 20px !important;
+}
+
+.mgBottom40Px {
+  margin-bottom: 40px !important;
+}
+
+.mgBottom5Em {
+  margin-bottom: 5em !important;
+}
+
+.mgLeft5Px {
+  margin-left: 5px !important;
 }
 
 /* TEXT ALIGN */
@@ -71,17 +99,54 @@ body{
   width: 25% !important;
 }
 
+.width50Pc {
+  width: 50% !important;
+}
+
 .width100Pc {
   width: 100% !important;
 }
 
-.Footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+
+/* FONT-SIZE */
+.fs10Px {
+  font-size: 10px;
 }
 
+.fs12Px {
+  font-size: 12px;
+}
 
+.fs14Px {
+  font-size: 15px;
+}
+
+/* CURSOR */
+.cursorPointer {
+  cursor: pointer;
+}
+
+/* TEST */
+.fadeOut{
+  opacity:0;
+  width:0;
+  height:0;
+  /* transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s; */
+
+}
+.fadeIn{
+  opacity:1;
+  /* width:100px;
+  height:100px; */
+  /* transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s; */
+
+}
+
+.Footer {
+  position: fixed;
+  bottom: 0 !important;
+  width: 100%;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -18,19 +18,21 @@ class HeaderComponent extends Component {
 
     render() {
         const isAdmin = this.props.isAdmin
+        const name = this.props.name
+        const id = this.props.id
         return (
             <header>
                 <div className="ui attached stackable menu">
                     <div className="ui container"> 
                         {isAdmin ? (
                         <>
-                            <Link to="#" className="item">
+                            <Link to={`/admin/${name}`} className="item"> 
                                 <i className="home icon"></i> {this.props.home}
                             </Link>
                             <Link to="#" className="item">
                                 <i className="plus circle icon"></i> {this.props.admins}
                             </Link>
-                            <Link to="#" className="item">
+                            <Link to={`/adminAddUser/${name}`} className="item">
                                 <i className="plus circle icon"></i> {this.props.users}
                             </Link>
                             <Link to="#" className="item">
@@ -48,16 +50,28 @@ class HeaderComponent extends Component {
                         </>
                         ) : (
                         <>
-                            <Link to="#" className="item">
+                            <Link to={{
+                                pathname: '/userLogin',
+                                state: {userName: name, userId: id}
+                            }} className="item"> 
                                 <i className="home icon"></i> {this.props.home}
                             </Link>
-                            <Link to="#" className="item">
+                            <Link to={{
+                                pathname: '/userAddVocab',
+                                state: {userName: name, userId: id}
+                            }} className="item">
                                 <i className="plus circle icon"></i> {this.props.addvocab}
                             </Link>
-                            <Link to="#" className="item">
+                            <Link to={{
+                                pathname: '/userTest',
+                                state : {userName: name, userId: id}
+                            }} className="item">
                                 <i className="file icon"></i> {this.props.test}
                             </Link>
-                            <Link to="#" className="item">
+                            <Link to={{
+                                pathname: '/userResult',
+                                state: {userName: name, userId: id}
+                            }} className="item">
                                 <i className="question circle icon"></i> {this.props.result}
                             </Link>
                         </>
@@ -66,7 +80,7 @@ class HeaderComponent extends Component {
                         <div className="right item ">
                             <i className="user icon"></i>
                             {this.props.name}
-                           &nbsp;<p>[{this.props.type}]</p>
+                            &nbsp;<p>[{this.props.type}]</p>
                         </div>
                         <Link to="#" className="item" onClick={this.handleLogout}>
                             <i className="sign out alternate icon"></i>Logout

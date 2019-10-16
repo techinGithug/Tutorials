@@ -19,6 +19,7 @@ class TodoDataService {
     }
 
     postTodo = (todo) => {
+        console.log(todo)
         return Axios.post(`${JPA_API_URL}/post/todos`, todo)
     }
 

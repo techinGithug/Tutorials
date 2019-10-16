@@ -27,7 +27,7 @@ class UpdateComponent extends Component {
 
         if(this.state.id === -1) {
             TodoDataService.postTodo(todo)
-            .then( () => this.props.history.push('/todos') )
+            .then( (res) => this.props.history.push('/todos') )
         } else {
             TodoDataService.updateTodo(this.state.id, todo)
             .then( () => this.props.history.push('/todos') )
